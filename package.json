@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/chacal/trainspotter#readme",
   "dependencies": {
-    "alexa-sdk": "^1.0.6"
+    "alexa-sdk": "^1.0.6",
+    "bluebird": "^3.4.6",
+    "lodash": "^4.16.4",
+    "moment": "^2.15.1",
+    "moment-round": "^1.0.1",
+    "moment-timezone": "^0.5.5",
+    "request": "^2.75.0"
   }
 }
