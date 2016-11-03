@@ -11,9 +11,11 @@ var APP_ID = "amzn1.ask.skill.fb8ceabb-21b7-4a1f-a554-51f3b6cc5657"
 var SKILL_NAME = 'Train Spotter'
 
 exports.handler = function(event, context, callback) {
+  console.log('Starting handler..')
   var alexa = Alexa.handler(event, context)
   alexa.appId = APP_ID
   alexa.registerHandlers(handlers)
+  console.log('Executing handler..')
   alexa.execute()
 }
 
@@ -25,8 +27,11 @@ var handlers = {
     this.emit('GetTrains')
   },
   "GetTrains": function () {
+    console.log('Getting departure times..')
     getTrainDepartureTimes()
+      .tap(res => console.log('Getting speech output:', res))
       .then(getSpeechOutput)
+      .tap(res => console.log('Getting speech output:', res))
       .then(output => this.emit(':tellWithCard', output, SKILL_NAME, output))
   },
   'AMAZON.HelpIntent': function () {
